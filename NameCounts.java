@@ -5,41 +5,40 @@
 
 import java.util.*;
 
-public class NameCounts {
+import acm.program.ConsoleProgram;
 
-	HashMap<String, Integer> hashNames = new HashMap<String, Integer>();
-	static String names;
-	static int total;
-	
-	public static void main(String[] args) {
-		System.out.println("Enter the name ");
-		
+public class NameCounts extends ConsoleProgram{
+
+	private static HashMap<String, Integer> hashNames = new HashMap<String, Integer>();
+	private static Scanner input = new Scanner(System.in);
+
+
+	public void run() {
 		readNames();
-		printName();
+		printNames();
+
 	}
-	
+
 	public void readNames() {
-		
-		Integer number = (names);
-			while (true) {
-			names = input.nextLine();
-			
-			if (names.contains(names) == false) {
-				names.put(names, 1);
-			}else {
-				int total = names.get(names)+ 1;
-				names.put(names, total);
-			}
-			if (names.equals("")) 
+
+		while (true) {
+			String name = readLine("Enter name:");
+			if (name.equals("")) 
 				break;
+			if (hashNames.containsKey(name) == false) {
+				hashNames.put(name, 1);
+			}else {
+				int number = hashNames.get(name) + 1;
+				hashNames.put(name, number);
+			}
 		}
-		// put(key, Integer);
 	}
-	
-	public void printName() {
-		for(String names : names.keySet()) {
-		System.out.println("Entry [ " + names + "] has count " + names.get(names));
+
+	public void printNames() {
+		for(String name : hashNames.keySet()) {
+			println("Name count for: " + name + " is " + hashNames.get(name) + " times");
 		}
+
 	}
 
 }	

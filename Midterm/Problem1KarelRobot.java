@@ -10,12 +10,19 @@ public class Problem1KarelRobot extends SuperKarel{
 
 	public void run() {
 		turnAround();
+		for (int i = 0; i < 4; i++) {
 		putBeep();
+		nextPosition();
+		}
 	}
 	public void putBeep() {
 		move();
-		while (beepersInBag()) {
-			if(frontIsClear() && noBeepersPresent()) {
+		int numOfBeepers = getBeepersInBag();
+		if(numOfBeepers < 100) {
+			setBeepersInBag(100);
+		}
+		while (frontIsClear()) {
+			if(noBeepersPresent()) {
 				putBeeper();
 			}
 			move();
@@ -27,5 +34,12 @@ public class Problem1KarelRobot extends SuperKarel{
 		move();
 		turnRight();
 	} 
-
+	
+	public void nextPosition() {
+		turnRight();
+		move();
+		turnRight();
+		move();
+		turnRight();
+	}
 }

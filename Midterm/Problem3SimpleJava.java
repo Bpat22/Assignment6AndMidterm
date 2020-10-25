@@ -5,18 +5,23 @@ package Midterm;
 
 import acm.program.ConsoleProgram;
 
-public class Problem3_SimpleJava extends ConsoleProgram{
+public class Problem3SimpleJava extends ConsoleProgram{
 
+	private static final int SENTINEL = 0;
+	
 	public void run() {
 
-		println("Enter a number: ");
-
-		int largestNum = 0;
-		int secondLargestNum = 0;
+		println("This program finds the two largest integers in a");
+		println("list. Enter values, one per line, using a " + SENTINEL + " to");
+		println("signal the end of the list.");
+		
+		
+		int largestNum = -1;
+		int secondLargestNum =-1;
 
 		while(true) {
-			int inputNum = readInt("");
-			if (inputNum == 0)
+			int inputNum = readInt("Enter number");
+			if (inputNum == SENTINEL)
 				break;
 			if (inputNum > largestNum){
 				secondLargestNum = largestNum;

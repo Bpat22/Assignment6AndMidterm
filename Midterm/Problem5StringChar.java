@@ -8,20 +8,14 @@ public class Problem5StringChar {
 
 		Scanner input = new Scanner(System.in);
 
-		while (true) {
 			System.out.println("Enter the Word ");
 			String word = input.nextLine();
-			if(word.equals("")) {
-				break;
-			}else {
-				removeDoubleLetters();
-			}
-		}
-		System.out.println(tempWord);
+			String newStr = removeDoubleLetters(word);
+			System.out.println(newStr);
 	}
 	
-	public static void removeDoubleLetters(String word) {
-		String tempWord = null;
+	private static String removeDoubleLetters(String word) {
+		String tempWord = "";
 		for (int i = 0; i < word.length(); i++) {
 			char ch = word.charAt(i);
 			if (i == 0 || ch!= word.charAt(i-1)) {
@@ -30,5 +24,5 @@ public class Problem5StringChar {
 		}
 		return tempWord;
 	}
-
+	
 }
